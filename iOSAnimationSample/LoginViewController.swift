@@ -22,28 +22,28 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var login: UIButton!
     
     // Customer UI
-    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+    let spinner = UIActivityIndicatorView(style: .whiteLarge)
     let warningMessage = UIImageView(image: UIImage(named: "Warning"))
     var loginPosition = CGPoint.zero
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bubble1.transform = CGAffineTransformMakeScale(0, 0)
-        self.bubble2.transform = CGAffineTransformMakeScale(0, 0)
-        self.bubble3.transform = CGAffineTransformMakeScale(0, 0)
-        self.bubble4.transform = CGAffineTransformMakeScale(0, 0)
-        self.bubble5.transform = CGAffineTransformMakeScale(0, 0)
+        self.bubble1.transform = CGAffineTransform(scaleX: 0, y: 0)
+        self.bubble2.transform = CGAffineTransform(scaleX: 0, y: 0)
+        self.bubble3.transform = CGAffineTransform(scaleX: 0, y: 0)
+        self.bubble4.transform = CGAffineTransform(scaleX: 0, y: 0)
+        self.bubble5.transform = CGAffineTransform(scaleX: 0, y: 0)
         
         self.logo.center.x -= self.view.bounds.width
         self.dot.center.x -= self.view.bounds.width/2
         
-        let paddingViewForUsername = UIView(frame: CGRectMake(0, 0, 44, self.username.frame.height))
+        let paddingViewForUsername = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: self.username.frame.height))
         self.username.leftView = paddingViewForUsername
-        self.username.leftViewMode = .Always
+        self.username.leftViewMode = .always
         
-        let paddingViewForPassword = UIView(frame: CGRectMake(0, 0, 44, self.password.frame.height))
+        let paddingViewForPassword = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: self.password.frame.height))
         self.password.leftView = paddingViewForPassword
-        self.password.leftViewMode = .Always
+        self.password.leftViewMode = .always
 
         let userImageView = UIImageView(image: UIImage(named: "User"))
         userImageView.frame.origin = CGPoint(x: 13, y: 10)
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
         self.login.center.x -= self.view.bounds.width
         
         self.view.addSubview(self.warningMessage)
-        self.warningMessage.hidden = true
+        self.warningMessage.isHidden = true
         self.warningMessage.center = self.loginPosition
     }
 
@@ -69,21 +69,21 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        UIView.animateWithDuration(0.3, delay: 0.3, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
-            self.bubble1.transform = CGAffineTransformMakeScale(1, 1)
-            self.bubble4.transform = CGAffineTransformMakeScale(1, 1)
-            self.bubble5.transform = CGAffineTransformMakeScale(1, 1)
+        UIView.animate(withDuration: 0.3, delay: 0.3, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
+            self.bubble1.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.bubble4.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.bubble5.transform = CGAffineTransform(scaleX: 1, y: 1)
         }, completion: nil)
         
-        UIView.animateWithDuration(0.3, delay: 0.4, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
-            self.bubble2.transform = CGAffineTransformMakeScale(1, 1)
-            self.bubble3.transform = CGAffineTransformMakeScale(1, 1)
+        UIView.animate(withDuration: 0.3, delay: 0.4, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
+            self.bubble2.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.bubble3.transform = CGAffineTransform(scaleX: 1, y: 1)
             }, completion: nil)
         
-        UIView.animateWithDuration(0.5, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [], animations: {
             self.logo.center.x += self.view.bounds.width
             }, completion: nil)
         
@@ -91,19 +91,19 @@ class LoginViewController: UIViewController {
 //            self.logo.center.x += self.view.bounds.width
 //        }, completion: nil)
 //        
-        UIView.animateWithDuration(5, delay: 1, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: [], animations: {
+        UIView.animate(withDuration: 5, delay: 1, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: [], animations: {
             self.dot.center.x += self.view.bounds.width/2
             }, completion: nil)
         
-        UIView.animateWithDuration(0.4, delay: 0.6, options: .CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.6, options: .curveEaseOut, animations: {
             self.username.center.x += self.view.bounds.width
             }, completion: nil)
         
-        UIView.animateWithDuration(0.4, delay: 0.7, options: .CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.7, options: .curveEaseOut, animations: {
             self.password.center.x += self.view.bounds.width
             }, completion: nil)
         
-        UIView.animateWithDuration(0.4, delay: 0.8, options: .CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.8, options: .curveEaseOut, animations: {
             self.login.center.x += self.view.bounds.width
             }, completion: nil)
 
@@ -111,32 +111,32 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginTapped(sender: AnyObject) {
         self.login.addSubview(self.spinner)
-        self.spinner.frame.origin = CGPointMake(12, 12)
+        self.spinner.frame.origin = CGPoint(x: 12, y: 12)
         self.spinner.startAnimating()
         
-        UIView.transitionWithView(self.warningMessage,
+        UIView.transition(with: self.warningMessage,
             duration: 0.3,
-            options: .TransitionFlipFromTop,
+            options: .transitionFlipFromTop,
             animations: {
-                self.warningMessage.hidden = true
+                self.warningMessage.isHidden = true
             }, completion: nil)
         
-        UIView.animateWithDuration(0.3, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.login.center = self.loginPosition
             }, completion: { _ in
                 self.login.center.x -= 30
-                UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, options: [], animations: {
+                UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, options: [], animations: {
                     self.login.center.x += 30
                     }, completion: {finished in
-                        UIView.animateWithDuration(0.3, animations: {
+                        UIView.animate(withDuration: 0.3, animations: {
                             self.login.center.y += 90
                             self.spinner.removeFromSuperview()
                             }, completion: { _ in
-                                UIView.transitionWithView(self.warningMessage,
+                                UIView.transition(with: self.warningMessage,
                                     duration: 0.3,
-                                    options: [.TransitionFlipFromTop, .CurveEaseOut],
+                                    options: [.transitionFlipFromTop, .curveEaseOut],
                                     animations: {
-                                        self.warningMessage.hidden = false
+                                        self.warningMessage.isHidden = false
                                     }, completion: nil)
                         })
                 })

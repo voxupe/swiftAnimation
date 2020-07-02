@@ -24,20 +24,20 @@ class PositionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // <null>
         // println(self.view.actionForLayer(self.view.layer, forKey: "position"))
 
-        UIView.animateWithDuration(1, animations: {
+        UIView.animate(withDuration: 1, animations: {
             self.blueSquare.center.x = self.view.bounds.width - self.blueSquare.center.x
         })
         
-        UIView.animateWithDuration(1, delay: 0.5, options: [], animations: {
+        UIView.animate(withDuration: 1, delay: 0.5, options: [], animations: {
             self.redSquare.center.y  = self.view.bounds.height - self.redSquare.center.y
         }, completion: nil)
         
-        UIView.animateWithDuration(1, delay: 1, options: [], animations: {
+        UIView.animate(withDuration: 1, delay: 1, options: [], animations: {
             self.greenSquare.center.x = self.view.bounds.width - self.greenSquare.center.x
             self.greenSquare.center.y  = self.view.bounds.height - self.greenSquare.center.y
         }, completion: nil)

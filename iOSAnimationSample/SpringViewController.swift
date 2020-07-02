@@ -24,17 +24,17 @@ class SpringViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animateWithDuration(1, animations: {
+        UIView.animate(withDuration: 1, animations: {
             self.blueSquare.center.x = self.view.bounds.width - self.blueSquare.center.x
         })
         
-        UIView.animateWithDuration(5, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 0, options: [], animations: {
+        UIView.animate(withDuration: 5, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 0, options: [], animations: {
             self.redSquare.center.x = self.view.bounds.width - self.redSquare.center.x
         }, completion: nil)
         
-        UIView.animateWithDuration(5, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: [], animations: {
+        UIView.animate(withDuration: 5, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options: [], animations: {
             self.greenSquare.center.x = self.view.bounds.width - self.greenSquare.center.x
             }, completion: nil)
     }

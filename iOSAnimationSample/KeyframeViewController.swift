@@ -23,7 +23,7 @@ class KeyframeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //        UIView.animateWithDuration(0.5, animations: {
 //           self.blueSquare.center.x = self.view.bounds.width - self.blueSquare.center.x
@@ -43,17 +43,17 @@ class KeyframeViewController: UIViewController {
 //        })
         
         // Same as above using keyframe animation
-        UIView.animateKeyframesWithDuration(2, delay: 0, options: [], animations: {
-            UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0.25, animations: {
+        UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25, animations: {
                 self.blueSquare.center.x = self.view.bounds.width - self.blueSquare.center.x
             })
-            UIView.addKeyframeWithRelativeStartTime(0.25, relativeDuration: 0.25, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
                 self.blueSquare.center.y = self.view.bounds.height - self.blueSquare.center.y
             })
-            UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.25, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25, animations: {
                 self.blueSquare.center.x = self.view.bounds.width - self.blueSquare.center.x
             })
-            UIView.addKeyframeWithRelativeStartTime(0.75, relativeDuration: 0.25, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
                 self.blueSquare.center.y = self.view.bounds.height - self.blueSquare.center.y
             })
         }, completion: nil)

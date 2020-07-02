@@ -22,10 +22,10 @@ class ScaleViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animateWithDuration(1, animations: {
-            self.blueSquare.transform = CGAffineTransformMakeScale(2.0, 2.0)
+        UIView.animate(withDuration: 1, animations: {
+            self.blueSquare.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
         })
     }
     

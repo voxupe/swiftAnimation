@@ -24,24 +24,24 @@ class AutoLayoutLoginViewController: UIViewController {
   @IBOutlet var loginButtonWidthConstraint: NSLayoutConstraint!
   
   // Customer UI
-  let spinner = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+    let spinner = UIActivityIndicatorView(style: .whiteLarge)
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Setup all bubbles start transform
     for bubble in bubbleImageViewGroup1 {
-      bubble.transform = CGAffineTransformMakeScale(0, 0)
+        bubble.transform = CGAffineTransform(scaleX: 0, y: 0)
     }
     
     for bubble in bubbleImageViewGroup2 {
-      bubble.transform = CGAffineTransformMakeScale(0, 0)
+        bubble.transform = CGAffineTransform(scaleX: 0, y: 0)
     }
     
     // Setup username and password textfields
     let paddingViewForUsername = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: usernameTextField.frame.height))
     usernameTextField.leftView = paddingViewForUsername
-    usernameTextField.leftViewMode = .Always
+    usernameTextField.leftViewMode = .always
     
     let userImageView = UIImageView(image: UIImage(named: "User"))
     userImageView.frame.origin = CGPoint(x: 13, y: 10)
@@ -49,18 +49,18 @@ class AutoLayoutLoginViewController: UIViewController {
     
     let paddingViewForPassword = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: passwordTextField.frame.height))
     passwordTextField.leftView = paddingViewForPassword
-    passwordTextField.leftViewMode = .Always
+    passwordTextField.leftViewMode = .always
     
     let passwordImageView = UIImageView(image: UIImage(named: "Key"))
     passwordImageView.frame.origin = CGPoint(x: 12, y: 9)
     passwordTextField.addSubview(passwordImageView)
     
     // Prepare the elements for animations
-    logoImageView.transform = CGAffineTransformMakeTranslation(-view.frame.width, 0)
-    dotImageView.transform = CGAffineTransformMakeTranslation(-view.frame.width, 0)
-    usernameTextField.transform = CGAffineTransformMakeTranslation(-view.frame.width, 0)
-    passwordTextField.transform = CGAffineTransformMakeTranslation(-view.frame.width, 0)
-    loginButton.transform = CGAffineTransformMakeTranslation(-view.frame.width, 0)
+    logoImageView.transform = CGAffineTransform(translationX: -view.frame.width, y: 0)
+    dotImageView.transform = CGAffineTransform(translationX: -view.frame.width, y: 0)
+    usernameTextField.transform = CGAffineTransform(translationX: -view.frame.width, y: 0)
+    passwordTextField.transform = CGAffineTransform(translationX: -view.frame.width, y: 0)
+    loginButton.transform = CGAffineTransform(translationX: -view.frame.width, y: 0)
   }
   
   //MARK: - IBActions
@@ -75,23 +75,23 @@ class AutoLayoutLoginViewController: UIViewController {
     
     loginButtonTopMarginConstraint.constant = 120
     loginButtonWidthConstraint.constant -= 60
-    UIView.animateWithDuration(0.3, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [],
+    UIView.animate(withDuration: 0.3, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [],
       animations: {
         self.view.layoutIfNeeded()
       }, completion: { _ in
         self.spinner.removeFromSuperview()
         self.loginButtonWidthConstraint.constant += 60
-        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, options: [],
+        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, options: [],
           animations: {
             self.view.layoutIfNeeded()
           }, completion: nil
         )
         
-        UIView.transitionWithView(self.warningMessageView,
+        UIView.transition(with: self.warningMessageView,
           duration: 0.3,
-          options: [.TransitionFlipFromTop, .CurveEaseOut],
+          options: [.transitionFlipFromTop, .curveEaseOut],
           animations: {
-            self.warningMessageView.hidden = false
+            self.warningMessageView.isHidden = false
           }, completion: nil
         )
       }
@@ -100,49 +100,49 @@ class AutoLayoutLoginViewController: UIViewController {
   
   // MARK: - Private methods
   private func animate() {
-    UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [],
+    UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [],
       animations: {
         for bubble in self.bubbleImageViewGroup1 {
-          bubble.transform = CGAffineTransformIdentity
+            bubble.transform = CGAffineTransform.identity
         }
       }, completion: nil
     )
     
-    UIView.animateWithDuration(0.3, delay: 0.1, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [],
+    UIView.animate(withDuration: 0.3, delay: 0.1, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [],
       animations: {
         for bubble in self.bubbleImageViewGroup2 {
-          bubble.transform = CGAffineTransformIdentity
+          bubble.transform = CGAffineTransform.identity
         }
       }, completion: nil
     )
     
-    UIView.animateWithDuration(0.3, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [],
+    UIView.animate(withDuration: 0.3, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [],
       animations: {
-        self.logoImageView.transform = CGAffineTransformIdentity
+        self.logoImageView.transform = CGAffineTransform.identity
       }, completion: nil
     )
     
-    UIView.animateWithDuration(0.6, delay: 0.25, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [],
+    UIView.animate(withDuration: 0.6, delay: 0.25, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [],
       animations: {
-        self.dotImageView.transform = CGAffineTransformIdentity
+        self.dotImageView.transform = CGAffineTransform.identity
       }, completion: nil
     )
 
-    UIView.animateWithDuration(0.3, delay: 0.3, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [],
+    UIView.animate(withDuration: 0.3, delay: 0.3, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [],
       animations: {
-        self.usernameTextField.transform = CGAffineTransformIdentity
+        self.usernameTextField.transform = CGAffineTransform.identity
       }, completion: nil
     )
     
-    UIView.animateWithDuration(0.3, delay: 0.4, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [],
+    UIView.animate(withDuration: 0.3, delay: 0.4, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [],
       animations: {
-        self.passwordTextField.transform = CGAffineTransformIdentity
+        self.passwordTextField.transform = CGAffineTransform.identity
       }, completion: nil
     )
     
-    UIView.animateWithDuration(0.3, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [],
+    UIView.animate(withDuration: 0.3, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: [],
       animations: {
-        self.loginButton.transform = CGAffineTransformIdentity
+        self.loginButton.transform = CGAffineTransform.identity
       }, completion: nil
     )
   }
